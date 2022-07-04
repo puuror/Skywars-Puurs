@@ -56,7 +56,7 @@ local A = Y.Button({
 })
 
 local B = Y.Button({
-    Text = "FakeBlock",
+    Text = "FakeAxe",
     Callback = function()
     local plr = game.Players.LocalPlayer
     local mouse = plr:GetMouse()
