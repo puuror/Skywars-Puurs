@@ -63,6 +63,7 @@ local B = Y.Button({
 
     local tool = Instance.new("Tool",plr.Backpack)
     tool.TextureId = "rbxassetid://399887168"
+    tool.Name = "FakeAxe"
     tool.CanBeDropped = false
     local handle = Instance.new("Part",tool)
     handle.BrickColor = BrickColor.new("Rust")
@@ -78,9 +79,21 @@ local B = Y.Button({
     tool.GripPos = Vector3.new(-7.152557373046875e-07, 0, -0.5000004768371582)
     tool.GripRight = Vector3.new(0.000001698740447864111, 1, -1.0125282096052832e-13)
     tool.GripUp = Vector3.new(3.460251107867407e-08, 4.247212255286889e-14, 1)
+    local sound = Instance.new("Sound",handle)
+    sound.SoundId = "rbxassetid://2473370042"
+    sound.Volume = 3
+    sound.PlaybackSpeed = 0.1
+    sound.Name = "SoundAxe"
 
     tool.Activated:Connect(function()
-            if game:GetService("Players").LocalPlayer.Backpack.Axe.RemoteEvent:FireServer(mouse.Target) then
+               sound:Play()
+   for i = 1,5 do
+    tool.GripUp = tool.GripUp + Vector3.new(0,0,1)
+    wait (0)
+end
+tool.GripUp = tool.GripUp + Vector3.new(0,0,-1)
+
+     if game:GetService("Players").LocalPlayer.Backpack.Axe.RemoteEvent:FireServer(mouse.Target) then
         end
     end)
 
