@@ -18,18 +18,30 @@ local Y = X.New({
 local A = Y.Button({
     Text = "FakeBlock",
     Callback = function()
-    local plr = game.Players.LocalPlayer
+ local plr = game.Players.LocalPlayer
     local mouse = plr:GetMouse()
 
     local tool = Instance.new("Tool",plr.Backpack)
     tool.TextureId = "rbxassetid://399886319"
     tool.CanBeDropped = false
+    tool.Name = "FakeBlock"
     local handle = Instance.new("Part",tool)
     handle.BrickColor = BrickColor.new("Rust")
     handle.Name = "Handle"
     handle.Size = Vector3.new(2,2,2)
+    local sound = Instance.new("Sound",handle)
+    sound.SoundId = "rbxassetid://2473398508"
+    sound.Volume = 3
+    sound.PlaybackSpeed = 0.1
+    sound.Name = "SoundAxe"
 
     tool.Activated:Connect(function()
+    sound:play()
+       for i = 1,5 do
+    tool.GripUp = tool.GripUp + Vector3.new(0,0,1)
+    wait (0)
+end
+tool.GripUp = tool.GripUp + Vector3.new(0,0,-1)
         if game:GetService("Players").LocalPlayer.Backpack.Block.RemoteEvent:FireServer(mouse.Target,Enum.NormalId.Top) then
         elseif game:GetService("Players").LocalPlayer.Backpack.Block.RemoteEvent:FireServer(mouse.Target,Enum.NormalId.Bottom) then
         elseif game:GetService("Players").LocalPlayer.Backpack.Block.RemoteEvent:FireServer(mouse.Target,Enum.NormalId.Back) then
@@ -58,7 +70,7 @@ local A = Y.Button({
 local B = Y.Button({
     Text = "FakeAxe",
     Callback = function()
-    local plr = game.Players.LocalPlayer
+       local plr = game.Players.LocalPlayer
     local mouse = plr:GetMouse()
 
     local tool = Instance.new("Tool",plr.Backpack)
@@ -82,17 +94,16 @@ local B = Y.Button({
     local sound = Instance.new("Sound",handle)
     sound.SoundId = "rbxassetid://2473370042"
     sound.Volume = 3
-    sound.PlaybackSpeed = 0.1
+    sound.PlaybackSpeed = 0.5
     sound.Name = "SoundAxe"
 
     tool.Activated:Connect(function()
-               sound:Play()
-   for i = 1,5 do
+    sound:play()
+       for i = 1,5 do
     tool.GripUp = tool.GripUp + Vector3.new(0,0,1)
     wait (0)
 end
 tool.GripUp = tool.GripUp + Vector3.new(0,0,-1)
-
      if game:GetService("Players").LocalPlayer.Backpack.Axe.RemoteEvent:FireServer(mouse.Target) then
         end
     end)
