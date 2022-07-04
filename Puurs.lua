@@ -71,9 +71,13 @@ local B = Y.Button({
     local mesh = Instance.new("SpecialMesh",handle)
     mesh.MeshType = "FileMesh"
     mesh.MeshId = "rbxassetid://22147051"
-    mesh.Offset = mesh.Offset + Vector3.new(0,0.5,1)
     mesh.Scale = mesh.Scale + Vector3.new(1, 1.5, 1)
     mesh.VertexColor = mesh.VertexColor + Vector3.new(1, 1, 1)
+    tool.Grip = CFrame.new(-7.15255737e-07, 0, -0.500000477, 1.69874045e-06, 3.46025111e-08, 1, 1, 4.24721226e-14, -1.69874045e-06, -1.01252821e-13, 1, -3.46025111e-08)
+    tool.GripForward = Vector3.new(-1, 0.000001698740447864111, 3.460251107867407e-08)
+    tool.GripPos = Vector3.new(-7.152557373046875e-07, 0, -0.5000004768371582)
+    tool.GripRight = Vector3.new(0.000001698740447864111, 1, -1.0125282096052832e-13)
+    tool.GripUp = Vector3.new(3.460251107867407e-08, 4.247212255286889e-14, 1)
 
     tool.Activated:Connect(function()
             if game:GetService("Players").LocalPlayer.Backpack.Axe.RemoteEvent:FireServer(mouse.Target) then
