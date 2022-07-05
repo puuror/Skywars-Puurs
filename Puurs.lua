@@ -151,77 +151,48 @@ A.TextWrapped = true
 local plr = game.Players.LocalPlayer
 local chr = plr.Character or plr.CharacterAdded:Wait()
 local root = chr:WaitForChild("HumanoidRootPart")
-
 local uis = game:GetService("UserInputService")
-
 uis.InputBegan:Connect(function(input)
     if input.KeyCode == Enum.KeyCode.E then
-
     local rayparams = RaycastParams.new()
-
-    local ray = workspace:Raycast(root.Position, root.CFrame.UpVector * -25, rayparams)
+    local ray = workspace:Raycast(root.Position, root.CFrame.UpVector * -10, rayparams)
     if ray then 
-    local object = ray.Instance
     local Block = game.ReplicatedStorage.Special.Block:Clone()
-    Block.Anchored = true
-    Block.CanCollide = true
-    Block.Position = ray.Position
-    Block.Material = object.Material;
-    Block.Parent = workspace:FindFirstChild("SpringMap").Map.Block
-     local Block = game.ReplicatedStorage.Special.Block:Clone()
+    Block.Parent = Workspace:FindFirstChild("WinterMap")
+    Block.Position = game.Players.LocalPlayer.Character.HumanoidRootPart.Position + Vector3.new(0,-1,0)
     end
     end
 end)
-
 local plr = game.Players.LocalPlayer
 local chr = plr.Character or plr.CharacterAdded:Wait()
 local root = chr:WaitForChild("HumanoidRootPart")
-
 local uis = game:GetService("UserInputService")
-
 uis.InputBegan:Connect(function(input)
     if input.KeyCode == Enum.KeyCode.E then
-
     local rayparams = RaycastParams.new()
-
-    local ray = workspace:Raycast(root.Position, root.CFrame.UpVector * -25, rayparams)
+    local ray = workspace:Raycast(root.Position, root.CFrame.UpVector * -10, rayparams)
     if ray then 
-    local object = ray.Instance
     local Block = game.ReplicatedStorage.Special.Block:Clone()
-    Block.Anchored = true
-    Block.CanCollide = true
-    Block.Position = ray.Position
-    Block.Material = object.Material;
-    Block.Parent = workspace:FindFirstChild("WinterMap").Map.Block
-     local Block = game.ReplicatedStorage.Special.Block:Clone()
+    Block.Parent = Workspace:FindFirstChild("SpringMap")
+    Block.Position = game.Players.LocalPlayer.Character.HumanoidRootPart.Position + Vector3.new(0,-1,0)
     end
     end
 end)
-
 local plr = game.Players.LocalPlayer
 local chr = plr.Character or plr.CharacterAdded:Wait()
 local root = chr:WaitForChild("HumanoidRootPart")
-
 local uis = game:GetService("UserInputService")
-
 uis.InputBegan:Connect(function(input)
     if input.KeyCode == Enum.KeyCode.E then
-
     local rayparams = RaycastParams.new()
-
-    local ray = workspace:Raycast(root.Position, root.CFrame.UpVector * -25, rayparams)
+    local ray = workspace:Raycast(root.Position, root.CFrame.UpVector * -10, rayparams)
     if ray then 
-    local object = ray.Instance
     local Block = game.ReplicatedStorage.Special.Block:Clone()
-    Block.Anchored = true
-    Block.CanCollide = true
-    Block.Position = ray.Position
-    Block.Material = object.Material;
-    Block.Parent = workspace:FindFirstChild("SummerMap").Map.Block
-     local Block = game.ReplicatedStorage.Special.Block:Clone()
+    Block.Parent = Workspace:FindFirstChild("SummerMap")
+    Block.Position = game.Players.LocalPlayer.Character.HumanoidRootPart.Position + Vector3.new(0,-1,0)
     end
     end
-    end)
+end)
     end,
 })
 
