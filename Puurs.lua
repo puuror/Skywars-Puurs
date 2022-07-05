@@ -131,14 +131,14 @@ local Lazy = Instance.new("ScreenGui")
 local A = Instance.new("TextLabel")
 
 Lazy.Name = "Lazy"
-Lazy.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+Lazy.Parent = game.Players.LocalPlayer.PlayerGui
 Lazy.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 A.Name = "A"
 A.Parent = Lazy
 A.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 A.BackgroundTransparency = 1.000
-A.Position = UDim2.new(20, 0, 0.031315241, 0)
+A.Position = UDim2.new(50, 0, 0.031315241, 0)
 A.Size = UDim2.new(0, 114, 0, 36)
 A.Font = Enum.Font.Arcade
 A.Text = "Press LeftControl"
