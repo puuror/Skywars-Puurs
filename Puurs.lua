@@ -131,7 +131,7 @@ local Lazy = Instance.new("ScreenGui")
 local A = Instance.new("TextLabel")
 
 Lazy.Name = "Lazy"
-Lazy.Parent = game.Players.LocalPlayer:WaitForChild("CoreGui")
+Lazy.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 Lazy.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 A.Name = "A"
