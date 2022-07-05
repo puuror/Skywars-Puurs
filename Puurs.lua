@@ -197,6 +197,24 @@ end)
 })
 
 local D = Y.Button({
+    Text = "FakeDestroy",
+    Callback = function()
+local plr = game.Players.LocalPlayer
+local mouse = plr:GetMouse()
+local tool = Instance.new("Tool",plr.Backpack)
+tool.Name = "."
+tool.CanBeDropped = false
+local handle = Instance.new("Part",tool)
+handle.BrickColor = BrickColor.new("Black")
+handle.Name = "Handle"
+handle.Size = Vector3.new(0.5,0.5,0.5)
+tool.Activated:Connect(function()
+game:GetService("Players").LocalPlayer.Backpack.Axe.RemoteEvent:FireServer(mouse.Target:Destroy)
+end)
+end,
+})
+
+local E = Y.Button({
     Text = "Shield Godmode",
     Callback = function()
       local plr = game.Players.LocalPlayer
