@@ -125,9 +125,9 @@ tool.GripUp = tool.GripUp + Vector3.new(0,0,-1)
 })
 
 local C = Y.Button({
-    Text = "Scaffolding"
+    Text = "Scaffolding",
     Callback = function()
-local Lazy = Instance.new("ScreenGui")
+    local Lazy = Instance.new("ScreenGui")
 local A = Instance.new("TextLabel")
 
 Lazy.Name = "Lazy"
