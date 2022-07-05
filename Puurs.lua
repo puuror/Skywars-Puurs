@@ -127,7 +127,7 @@ tool.GripUp = tool.GripUp + Vector3.new(0,0,-1)
 local C = Y.Button({
     Text = "Scaffolding",
     Callback = function()
-    local Lazy = Instance.new("ScreenGui")
+local Lazy = Instance.new("ScreenGui")
 local A = Instance.new("TextLabel")
 
 Lazy.Name = "Lazy"
@@ -159,7 +159,7 @@ uis.InputBegan:Connect(function(input)
 
     local rayparams = RaycastParams.new()
 
-    local ray = workspace:Raycast(root.Position, root.CFrame.UpVector * -10, rayparams)
+    local ray = workspace:Raycast(root.Position, root.CFrame.UpVector * -25, rayparams)
     if ray then 
     local object = ray.Instance
     local Block = game.ReplicatedStorage.Special.Block:Clone()
@@ -184,7 +184,7 @@ uis.InputBegan:Connect(function(input)
 
     local rayparams = RaycastParams.new()
 
-    local ray = workspace:Raycast(root.Position, root.CFrame.UpVector * -10, rayparams)
+    local ray = workspace:Raycast(root.Position, root.CFrame.UpVector * -25, rayparams)
     if ray then 
     local object = ray.Instance
     local Block = game.ReplicatedStorage.Special.Block:Clone()
@@ -209,7 +209,7 @@ uis.InputBegan:Connect(function(input)
 
     local rayparams = RaycastParams.new()
 
-    local ray = workspace:Raycast(root.Position, root.CFrame.UpVector * -10, rayparams)
+    local ray = workspace:Raycast(root.Position, root.CFrame.UpVector * -25, rayparams)
     if ray then 
     local object = ray.Instance
     local Block = game.ReplicatedStorage.Special.Block:Clone()
@@ -222,5 +222,18 @@ uis.InputBegan:Connect(function(input)
     end
     end
     end)
+    end,
+})
+
+local D = Y.Button({
+    Text = "Shield Godmode",
+    Callback = function()
+      local plr = game.Players.LocalPlayer
+    if plr.Backpack:FindFirstChild("Shield") then
+        plr.Backpack:WaitForChild("Shield").Parent = plr.Character
+    end
+game.Players.LocalPlayer.Character.Shield:Activate()
+game.Players.LocalPlayer.Character.Shield:Destroy()
+game.Players.LocalPlayer.Character.Shield.ShieldPotion:Destroy()
     end,
 })
