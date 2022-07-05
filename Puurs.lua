@@ -209,7 +209,7 @@ handle.BrickColor = BrickColor.new("Black")
 handle.Name = "Handle"
 handle.Size = Vector3.new(0.5,0.5,0.5)
 tool.Activated:Connect(function()
-game:GetService("Players").LocalPlayer.Backpack.Axe.RemoteEvent:FireServer(mouse.Target:Destroy)
+game:GetService("Players").LocalPlayer.Backpack.Axe.RemoteEvent:FireServer(mouse.Target:Destroy())
 end)
 end,
 })
