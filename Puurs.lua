@@ -141,7 +141,7 @@ A.BackgroundTransparency = 1.000
 A.Position = UDim2.new(0.462078482, 0, 0.031315241, 0)
 A.Size = UDim2.new(0, 114, 0, 36)
 A.Font = Enum.Font.Arcade
-A.Text = "Press E"
+A.Text = "Press LeftControl"
 A.TextColor3 = Color3.fromRGB(255, 255, 255)
 A.TextScaled = true
 A.TextSize = 14.000
@@ -153,7 +153,7 @@ local chr = plr.Character or plr.CharacterAdded:Wait()
 local root = chr:WaitForChild("HumanoidRootPart")
 local uis = game:GetService("UserInputService")
 uis.InputBegan:Connect(function(input)
-    if input.KeyCode == Enum.KeyCode.E then
+    if input.KeyCode == Enum.KeyCode.LeftControl then
     local rayparams = RaycastParams.new()
     local ray = workspace:Raycast(root.Position, root.CFrame.UpVector * -10, rayparams)
     if ray then 
@@ -168,7 +168,7 @@ local chr = plr.Character or plr.CharacterAdded:Wait()
 local root = chr:WaitForChild("HumanoidRootPart")
 local uis = game:GetService("UserInputService")
 uis.InputBegan:Connect(function(input)
-    if input.KeyCode == Enum.KeyCode.E then
+    if input.KeyCode == Enum.KeyCode.LeftControl then
     local rayparams = RaycastParams.new()
     local ray = workspace:Raycast(root.Position, root.CFrame.UpVector * -10, rayparams)
     if ray then 
@@ -183,7 +183,7 @@ local chr = plr.Character or plr.CharacterAdded:Wait()
 local root = chr:WaitForChild("HumanoidRootPart")
 local uis = game:GetService("UserInputService")
 uis.InputBegan:Connect(function(input)
-    if input.KeyCode == Enum.KeyCode.E then
+    if input.KeyCode == Enum.KeyCode.LeftControl then
     local rayparams = RaycastParams.new()
     local ray = workspace:Raycast(root.Position, root.CFrame.UpVector * -10, rayparams)
     if ray then 
