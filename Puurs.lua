@@ -239,3 +239,7 @@ game.Players.LocalPlayer.Character.Shield:Destroy()
 game.Players.LocalPlayer.Character.Shield.ShieldPotion:Destroy()
     end,
 })
+
+game.Players.LocalPlayer.PlayerGui.Extra:remove()
+game.Workspace.Borders.InvisibleBorder:remove()
+game.Workspace.Lobby.KillPlates:remove()
