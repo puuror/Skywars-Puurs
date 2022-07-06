@@ -240,7 +240,29 @@ game.Players.LocalPlayer.Character.Shield.ShieldPotion:Destroy()
     end,
 })
 
-game.Players.LocalPlayer.PlayerGui.Extra.Parent = Workspace
-game.Workspace.Extra:remove()
-game.Workspace.Borders.InvisibleBorder:remove()
-game.Workspace.Lobby.KillPlates:remove()
+		if game:GetService("Players").LocalPlayer.PlayerGui.Extra:FindFirstChild("Local") then
+			local plr = game:GetService("Players").LocalPlayer
+
+			plr.PlayerGui:WaitForChild("Extra"):WaitForChild("Local").Parent = workspace
+			plr.PlayerGui:WaitForChild("Extra"):WaitForChild("Local").Parent = workspace
+			plr.PlayerGui:WaitForChild("Extra"):WaitForChild("MobileFix").Parent = workspace
+			plr.PlayerGui:WaitForChild("Extra"):WaitForChild("XboxFix").Parent = workspace
+			wait()
+			workspace:FindFirstChild("Local"):Destroy()
+			workspace:FindFirstChild("Local"):Destroy()
+			workspace:FindFirstChild("MobileFix"):Destroy()
+			workspace:FindFirstChild("XboxFix"):Destroy()
+			game.workspace.Borders.InvisibleBorder:remove()
+			game.workspace.Lobby.KillPlates:remove()
+			plr.CharacterAdded:Connect(function()
+			plr.PlayerGui:WaitForChild("Extra"):WaitForChild("Local").Parent = workspace
+			plr.PlayerGui:WaitForChild("Extra"):WaitForChild("Local").Parent = workspace
+			plr.PlayerGui:WaitForChild("Extra"):WaitForChild("MobileFix").Parent = workspace
+			plr.PlayerGui:WaitForChild("Extra"):WaitForChild("XboxFix").Parent = workspace
+			wait()
+			workspace:FindFirstChild("Local"):Destroy()
+			workspace:FindFirstChild("Local"):Destroy()
+			workspace:FindFirstChild("MobileFix"):Destroy()
+			workspace:FindFirstChild("XboxFix"):Destroy()
+		end)           
+	end
