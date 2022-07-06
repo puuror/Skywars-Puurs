@@ -247,7 +247,7 @@ game.Players.LocalPlayer.Character.Shield.ShieldPotion:Destroy()
 			plr.PlayerGui:WaitForChild("Extra"):WaitForChild("Local").Parent = workspace
 			plr.PlayerGui:WaitForChild("Extra"):WaitForChild("MobileFix").Parent = workspace
 			plr.PlayerGui:WaitForChild("Extra"):WaitForChild("XboxFix").Parent = workspace
-			wait()
+			wait(.1)
 			workspace:FindFirstChild("Local"):Destroy()
 			workspace:FindFirstChild("Local"):Destroy()
 			workspace:FindFirstChild("MobileFix"):Destroy()
@@ -259,7 +259,7 @@ game.Players.LocalPlayer.Character.Shield.ShieldPotion:Destroy()
 			plr.PlayerGui:WaitForChild("Extra"):WaitForChild("Local").Parent = workspace
 			plr.PlayerGui:WaitForChild("Extra"):WaitForChild("MobileFix").Parent = workspace
 			plr.PlayerGui:WaitForChild("Extra"):WaitForChild("XboxFix").Parent = workspace
-			wait()
+			wait(.1)
 			workspace:FindFirstChild("Local"):Destroy()
 			workspace:FindFirstChild("Local"):Destroy()
 			workspace:FindFirstChild("MobileFix"):Destroy()
