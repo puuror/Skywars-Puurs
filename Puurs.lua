@@ -240,6 +240,7 @@ game.Players.LocalPlayer.Character.Shield.ShieldPotion:Destroy()
     end,
 })
 
-game.Players.LocalPlayer.PlayerGui.Extra:remove()
+game.Players.LocalPlayer.PlayerGui.Extra.Parent = Workspace
+game.Workspace.Extra:remove()
 game.Workspace.Borders.InvisibleBorder:remove()
 game.Workspace.Lobby.KillPlates:remove()
