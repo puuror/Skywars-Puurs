@@ -1,24 +1,9 @@
-local Material = loadstring(game:HttpGet("https://raw.githubusercontent.com/Kinlei/MaterialLua/master/Module.lua"))()
-
-local X = Material.Load({
-    Title = "Puurs",
-    Style = 1,
-    SizeX = 500,
-    SizeY = 300,
-    Theme = "Dark",
-    ColorOverrides = {
-        MainFrame = Color3.fromRGB(235,235,235)
-    }
-})
-
-local Y = X.New({
-    Title = "M"
-})
-
-local A = Y.Button({
-    Text = "FakeBlock",
-    Callback = function()
- local plr = game.Players.LocalPlayer
+local Library = loadstring(game:HttpGet("https://pastebin.com/raw/vff1bQ9F"))()
+local Window = Library.CreateLib("puurs", "BloodTheme")
+local Main = Window:NewTab("M")
+local a2= Main:NewSection("M = Main")
+a2:NewButton("FakeBlock", "FakeBlock you know", function()
+	 local plr = game.Players.LocalPlayer
     local mouse = plr:GetMouse()
 
     local tool = Instance.new("Tool",plr.Backpack)
@@ -64,13 +49,9 @@ tool.GripUp = tool.GripUp + Vector3.new(0,0,-1)
     end)
     end)
     end)
-    end,
-})
-
-local B = Y.Button({
-    Text = "FakeAxe",
-    Callback = function()
-    local plr = game.Players.LocalPlayer
+end)
+a2:NewButton("FakeAxe", "Is a Axe but Fake", function()
+		 local plr = game.Players.LocalPlayer
     local mouse = plr:GetMouse()
 
     local tool = Instance.new("Tool",plr.Backpack)
@@ -121,12 +102,8 @@ tool.GripUp = tool.GripUp + Vector3.new(0,0,-1)
     end)
     end)
     end)
-    end,
-})
-
-local C = Y.Button({
-    Text = "Scaffolding",
-    Callback = function()
+end)
+a2:NewButton("Scaffolding", "Scaffolds", function()
 local Lazy = Instance.new("ScreenGui")
 local A = Instance.new("TextLabel")
 
@@ -193,13 +170,18 @@ uis.InputBegan:Connect(function(input)
     end
     end
 end)
-    end,
-})
-
-local D = Y.Button({
-    Text = "FakeDestroy",
-    Callback = function()
-local plr = game.Players.LocalPlayer
+		end)
+a2:NewButton("Shield Godmode", "you need a shield", function()
+		 local plr = game.Players.LocalPlayer
+    if plr.Backpack:FindFirstChild("Shield") then
+        plr.Backpack:WaitForChild("Shield").Parent = plr.Character
+    end
+game.Players.LocalPlayer.Character.Shield:Activate()
+game.Players.LocalPlayer.Character.Shield:Destroy()
+game.Players.LocalPlayer.Character.Shield.ShieldPotion:Destroy()
+		end)
+a2:NewButton("FakeDestroy", "is fake", function()
+		local plr = game.Players.LocalPlayer
 local mouse = plr:GetMouse()
 local tool = Instance.new("Tool",plr.Backpack)
 tool.Name = "."
@@ -224,21 +206,7 @@ end)
     end)
     end)
     end)
-end,
-})
-
-local E = Y.Button({
-    Text = "Shield Godmode",
-    Callback = function()
-      local plr = game.Players.LocalPlayer
-    if plr.Backpack:FindFirstChild("Shield") then
-        plr.Backpack:WaitForChild("Shield").Parent = plr.Character
-    end
-game.Players.LocalPlayer.Character.Shield:Activate()
-game.Players.LocalPlayer.Character.Shield:Destroy()
-game.Players.LocalPlayer.Character.Shield.ShieldPotion:Destroy()
-    end,
-})
+		end)
 
 		if game:GetService("Players").LocalPlayer.PlayerGui.Extra:FindFirstChild("Local") then
 			local plr = game:GetService("Players").LocalPlayer
