@@ -104,6 +104,66 @@ tool.GripUp = tool.GripUp + Vector3.new(0,0,-1)
     end)
 end)
 a2:NewButton("Scaffolding", "Scaffolds", function()
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local ScreenGui = Instance.new("ScreenGui")
+local ImageLabel = Instance.new("ImageLabel")
+local TextButton = Instance.new("TextButton")
+
+--Properties:
+
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+ImageLabel.Parent = ScreenGui
+ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ImageLabel.BackgroundTransparency = 1.000
+ImageLabel.BorderSizePixel = 0
+ImageLabel.Position = UDim2.new(0.810090482, 0, 0.384484172, 0)
+ImageLabel.Size = UDim2.new(0, 98, 0, 51)
+ImageLabel.Image = "http://www.roblox.com/asset/?id=6906809185"
+ImageLabel.ImageColor3 = Color3.fromRGB(0, 0, 0)
+
+TextButton.Parent = ImageLabel
+TextButton.BackgroundColor3 = Color3.fromRGB(31, 31, 31)
+TextButton.BorderSizePixel = 0
+TextButton.Position = UDim2.new(0.0932187438, 0, 0.159254491, 0)
+TextButton.Size = UDim2.new(0.827035069, 0, 0.703491032, 0)
+TextButton.Font = Enum.Font.SourceSansBold
+TextButton.Text = "Scaffold"
+TextButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextButton.TextSize = 14.000
+
+-- Scripts:
+
+local function PSPDX_fake_script() -- TextButton.LocalScript 
+	local script = Instance.new('LocalScript', TextButton)
+
+	script.Parent.Visible = false
+
+uis = game:GetService("UserInputService")
+ismobile = uis.TouchEnabled
+
+script.Parent.Visible = ismobile
+	
+end
+coroutine.wrap(PSPDX_fake_script)()
+local function BHMTL_fake_script() -- ImageLabel.LocalScript 
+	local script = Instance.new('LocalScript', ImageLabel)
+
+	script.Parent.Visible = false
+
+uis = game:GetService("UserInputService")
+ismobile = uis.TouchEnabled
+
+script.Parent.Visible = ismobile
+	
+end
+coroutine.wrap(BHMTL_fake_script)()
+
 local Lazy = Instance.new("ScreenGui")
 local A = Instance.new("TextLabel")
 
@@ -169,6 +229,20 @@ uis.InputBegan:Connect(function(input)
     Block.Position = game.Players.LocalPlayer.Character.HumanoidRootPart.Position + Vector3.new(0,-1,0)
     end
     end
+end)
+
+TextButton.MouseButton1Down:Connect(function()
+local Block = game.ReplicatedStorage.Special.Block:Clone()
+Block.Parent = Workspace:FindFirstChild("SummerMap")
+Block.Position = game.Players.LocalPlayer.Character.HumanoidRootPart.Position + Vector3.new(0,-1,0)
+
+local Block = game.ReplicatedStorage.Special.Block:Clone()
+Block.Parent = Workspace:FindFirstChild("SpringMap")
+Block.Position = game.Players.LocalPlayer.Character.HumanoidRootPart.Position + Vector3.new(0,-1,0)
+local Block = game.ReplicatedStorage.Special.Block:Clone()
+
+Block.Parent = Workspace:FindFirstChild("WinterMap")
+Block.Position = game.Players.LocalPlayer.Character.HumanoidRootPart.Position + Vector3.new(0,-1,0)
 end)
 		end)
 a2:NewButton("Shield Godmode", "you need a shield", function()
