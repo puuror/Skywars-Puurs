@@ -289,7 +289,6 @@ game:GetService("Players").LocalPlayer.Backpack.Axe.RemoteEvent:FireServer(mouse
 end
 end
 local Block = Instance.new("Part",Workspace)
-Block.Transparency = 1
 Block.CanCollide = false
 Block.Position = game.Players.LocalPlayer.Character.HumanoidRootPart.Position + Vector3.new(0,9,0)
 Block.Size = Vector3.new(15,20,15)
@@ -309,7 +308,6 @@ end
 end
 end
 local Block = Instance.new("Part",Workspace)
-Block.Transparency = 1
 Block.CanCollide = false
 Block.Position = game.Players.LocalPlayer.Character.HumanoidRootPart.Position + Vector3.new(0,-1,0)
 Block.Size = Vector3.new(15,30,15)
