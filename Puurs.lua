@@ -258,7 +258,7 @@ a2:NewButton("FakeDestroy", "is fake", function()
 		local plr = game.Players.LocalPlayer
 local mouse = plr:GetMouse()
 local tool = Instance.new("Tool",plr.Backpack)
-tool.Name = "."
+tool.Name = "ScaffDestroy"
 tool.CanBeDropped = false
 local handle = Instance.new("Part",tool)
 handle.BrickColor = BrickColor.new("Black")
@@ -280,6 +280,44 @@ end)
     end)
     end)
     end)
+		end)
+a2:NewButton("Mine Aura", "Mines Blocks and Ores", function()
+		function Break(Harsh)
+local mouse = Harsh
+if mouse.Name == "Block" then
+game:GetService("Players").LocalPlayer.Backpack.Axe.RemoteEvent:FireServer(mouse)
+end
+end
+local Block = Instance.new("Part",Workspace)
+Block.Transparency = 1
+Block.CanCollide = false
+Block.Position = game.Players.LocalPlayer.Character.HumanoidRootPart.Position + Vector3.new(0,-1,0)
+Block.Size = Vector3.new(15,20,15)
+local Dis = Block.Touched:connect(Break)
+wait(0)
+Dis:Disconnect()
+Block:Destroy()
+wait(0)
+		end)
+a2:NewButton("Ore Aura", "Mines Ores Only", function()
+function Break(Harsh)
+local mouse = Harsh
+if mouse.Parent.Name == "Ores" then
+if mouse.Name == "Block" then
+game:GetService("Players").LocalPlayer.Backpack.Axe.RemoteEvent:FireServer(mouse)
+end
+end
+end
+local Block = Instance.new("Part",Workspace)
+Block.Transparency = 1
+Block.CanCollide = false
+Block.Position = game.Players.LocalPlayer.Character.HumanoidRootPart.Position + Vector3.new(0,-1,0)
+Block.Size = Vector3.new(15,30,15)
+local Dis = Block.Touched:connect(Break)
+wait(0)
+Dis:Disconnect()
+Block:Destroy()
+wait(0)
 		end)
 
 		if game:GetService("Players").LocalPlayer.PlayerGui.Extra:FindFirstChild("Local") then
