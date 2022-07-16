@@ -1,9 +1,22 @@
-local Library = loadstring(game:HttpGet("https://pastebin.com/raw/jbsJ7fFZ"))()
-local Window = Library.CreateLib("puurs", "BloodTheme")
-local Main = Window:NewTab("M")
-local a2= Main:NewSection("M = Main")
-a2:NewButton("FakeBlock", "FakeBlock you know", function()
-	 local plr = game.Players.LocalPlayer
+local DiscordLib = loadstring(game:HttpGet"https://raw.githubusercontent.com/dawid-scripts/UI-Libs/main/discord%20lib.txt")()
+
+local Win1 = DiscordLib:Window("")
+
+local Tab1 = Win1:Server("Puurs", "")
+
+local Chann1 = Tab1:Channel("General")
+
+Chann1:Button("Shield GodMode", function()
+   local plr = game.Players.LocalPlayer
+   if plr.Backpack:FindFirstChild("Shield") then
+   plr.Backpack:WaitForChild("Shield").Parent = plr.Character
+end
+game.Players.LocalPlayer.Character.Shield:Activate()
+game.Players.LocalPlayer.Character.Shield:Destroy()
+game.Players.LocalPlayer.Character.Shield.ShieldPotion:Destroy()
+end)
+Chann1:Button("FakeBlock", function()
+local plr = game.Players.LocalPlayer
     local mouse = plr:GetMouse()
 
     local tool = Instance.new("Tool",plr.Backpack)
@@ -17,7 +30,7 @@ a2:NewButton("FakeBlock", "FakeBlock you know", function()
     local sound = Instance.new("Sound",handle)
     sound.SoundId = "rbxassetid://2473398508"
     sound.Volume = 3
-    sound.PlaybackSpeed = 0.1
+    sound.PlaybackSpeed = 1
     sound.Name = "SoundAxe"
 
     tool.Activated:Connect(function()
@@ -50,8 +63,8 @@ tool.GripUp = tool.GripUp + Vector3.new(0,0,-1)
     end)
     end)
 end)
-a2:NewButton("FakeAxe", "Is a Axe but Fake", function()
-		 local plr = game.Players.LocalPlayer
+Chann1:Button("FakeAxe", function()
+local plr = game.Players.LocalPlayer
     local mouse = plr:GetMouse()
 
     local tool = Instance.new("Tool",plr.Backpack)
@@ -65,7 +78,6 @@ a2:NewButton("FakeAxe", "Is a Axe but Fake", function()
     local mesh = Instance.new("SpecialMesh",handle)
     mesh.MeshType = "FileMesh"
     mesh.MeshId = "rbxassetid://22147051"
-    mesh.Scale = mesh.Scale + Vector3.new(1, 1.5, 1)
     mesh.VertexColor = mesh.VertexColor + Vector3.new(1, 1, 1)
     tool.Grip = CFrame.new(-7.15255737e-07, 0, -0.500000477, 1.69874045e-06, 3.46025111e-08, 1, 1, 4.24721226e-14, -1.69874045e-06, -1.01252821e-13, 1, -3.46025111e-08)
     tool.GripForward = Vector3.new(-1, 0.000001698740447864111, 3.460251107867407e-08)
@@ -79,14 +91,14 @@ a2:NewButton("FakeAxe", "Is a Axe but Fake", function()
     sound.Name = "SoundAxe"
 
     tool.Activated:Connect(function()
+     if game:GetService("Players").LocalPlayer.Backpack.Axe.RemoteEvent:FireServer(mouse.Target) then
+        end
     sound:play()
        for i = 1,5 do
     tool.GripUp = tool.GripUp + Vector3.new(0,0,1)
     wait (0)
 end
 tool.GripUp = tool.GripUp + Vector3.new(0,0,-1)
-     if game:GetService("Players").LocalPlayer.Backpack.Axe.RemoteEvent:FireServer(mouse.Target) then
-        end
     end)
 
     tool.Equipped:Connect(function()
@@ -103,8 +115,8 @@ tool.GripUp = tool.GripUp + Vector3.new(0,0,-1)
     end)
     end)
 end)
-a2:NewButton("Scaffolding", "Scaffolds", function()
--- Gui to Lua
+Chann1:Button("Scaffolding", function()
+    -- Gui to Lua
 -- Version: 3.2
 
 -- Instances:
@@ -244,103 +256,67 @@ local Block = game.ReplicatedStorage.Special.Block:Clone()
 Block.Parent = Workspace:FindFirstChild("WinterMap")
 Block.Position = game.Players.LocalPlayer.Character.HumanoidRootPart.Position + Vector3.new(0,-1,0)
 end)
-		end)
-a2:NewButton("Shield Godmode", "you need a shield", function()
-		 local plr = game.Players.LocalPlayer
-    if plr.Backpack:FindFirstChild("Shield") then
-        plr.Backpack:WaitForChild("Shield").Parent = plr.Character
-    end
-game.Players.LocalPlayer.Character.Shield:Activate()
-game.Players.LocalPlayer.Character.Shield:Destroy()
-game.Players.LocalPlayer.Character.Shield.ShieldPotion:Destroy()
-		end)
-a2:NewButton("FakeDestroy", "is fake", function()
-		local plr = game.Players.LocalPlayer
-local mouse = plr:GetMouse()
-local tool = Instance.new("Tool",plr.Backpack)
-tool.Name = "ScaffDestroy"
-tool.CanBeDropped = false
-local handle = Instance.new("Part",tool)
-handle.BrickColor = BrickColor.new("Black")
-handle.Name = "Handle"
-handle.Size = Vector3.new(0.5,0.5,0.5)
-tool.Activated:Connect(function()
-game:GetService("Players").LocalPlayer.Backpack.Axe.RemoteEvent:FireServer(mouse.Target:Destroy())
 end)
-    tool.Equipped:Connect(function()
-    local selection = Instance.new("SelectionBox")
-    selection.LineThickness = 0.05
-    selection.Color3 = Color3.new(0,0,0)
-    selection.Parent = plr.PlayerGui
-    mouse.Move:Connect(function()
-    local target = mouse.Target
-    selection.Adornee = mouse.Target
-    tool.Unequipped:Connect(function()
-    selection:destroy()
-    end)
-    end)
-    end)
-		end)
-a2:NewButton("Mine Aura", "Mines Blocks and Ores", function()
-		function Break(Harsh)
-local mouse = Harsh
-if mouse.Name == "Block" then
-game:GetService("Players").LocalPlayer.Backpack.Axe.RemoteEvent:FireServer(mouse)
+Chann1:Seperator()
+Chann1:Toggle("Mine Aura",false, function(value)
+if value == true then
+_G.s = true
+    while _G.s == true do
+        wait(0)
+        local function Break(Harsh)
+            local mouse = Harsh
+            if mouse.Name == "Block" then
+                game:GetService("Players").LocalPlayer.Backpack.Axe.RemoteEvent:FireServer(mouse)
+                game:GetService("Players").LocalPlayer.Character.Axe.RemoteEvent:FireServer(mouse)
+            end
+        end
+        local Block = Instance.new("Part",workspace)
+        Block.CanCollide = false
+        Block.Transparency = 1
+        Block.Position = game.Players.LocalPlayer.Character.HumanoidRootPart.Position + Vector3.new(0,9,0)
+        Block.Size = Vector3.new(15,20,15)
+        local selection = Instance.new("SelectionBox",Block)
+        selection.Adornee = Block
+        local Dis = Block.Touched:connect(Break)
+        wait(0)
+        Dis:Disconnect()
+        Block:Destroy()
+        wait(0)
+    end
 end
+if value == false then
+_G.s = false
 end
-local Block = Instance.new("Part",Workspace)
-Block.CanCollide = false
-Block.Position = game.Players.LocalPlayer.Character.HumanoidRootPart.Position + Vector3.new(0,9,0)
-Block.Size = Vector3.new(15,20,15)
-local Dis = Block.Touched:connect(Break)
-wait(0)
-Dis:Disconnect()
-Block:Destroy()
-wait(0)
-		end)
-a2:NewButton("Ore Aura", "Mines Ores Only", function()
-function Break(Harsh)
-local mouse = Harsh
-if mouse.Parent.Name == "Ores" then
-if mouse.Name == "Block" then
-game:GetService("Players").LocalPlayer.Backpack.Axe.RemoteEvent:FireServer(mouse)
+end)
+Chann1:Toggle("Ore Aura",false, function(value)
+if value == true then
+  _G.s1 = true
+    while _G.s1 == true do
+        wait(0)
+        local function Break(Harsh)
+            local mouse = Harsh
+            if mouse.Parent.Name == "Ores" then
+                if mouse.Name == "Block" then
+                    game:GetService("Players").LocalPlayer.Backpack.Axe.RemoteEvent:FireServer(mouse)
+                    game:GetService("Players").LocalPlayer.Character.Axe.RemoteEvent:FireServer(mouse)
+                end
+            end
+        end
+        local Block = Instance.new("Part",workspace)
+        Block.CanCollide = false
+        Block.Transparency = 1
+        Block.Position = game.Players.LocalPlayer.Character.HumanoidRootPart.Position + Vector3.new(0,-1,0)
+        Block.Size = Vector3.new(15,30,15)
+        local selection = Instance.new("SelectionBox",Block)
+        selection.Adornee = Block
+        local Dis = Block.Touched:connect(Break)
+        wait(0)
+        Dis:Disconnect()
+        Block:Destroy()
+        wait(0)
+    end
 end
+if value == false then
+_G.s1 = false
 end
-end
-local Block = Instance.new("Part",Workspace)
-Block.CanCollide = false
-Block.Position = game.Players.LocalPlayer.Character.HumanoidRootPart.Position + Vector3.new(0,-1,0)
-Block.Size = Vector3.new(15,30,15)
-local Dis = Block.Touched:connect(Break)
-wait(0)
-Dis:Disconnect()
-Block:Destroy()
-wait(0)
-		end)
-
-		if game:GetService("Players").LocalPlayer.PlayerGui.Extra:FindFirstChild("Local") then
-			local plr = game:GetService("Players").LocalPlayer
-
-			plr.PlayerGui:WaitForChild("Extra"):WaitForChild("Local").Parent = workspace
-			plr.PlayerGui:WaitForChild("Extra"):WaitForChild("Local").Parent = workspace
-			plr.PlayerGui:WaitForChild("Extra"):WaitForChild("MobileFix").Parent = workspace
-			plr.PlayerGui:WaitForChild("Extra"):WaitForChild("XboxFix").Parent = workspace
-			wait(.1)
-			workspace:FindFirstChild("Local"):Destroy()
-			workspace:FindFirstChild("Local"):Destroy()
-			workspace:FindFirstChild("MobileFix"):Destroy()
-			workspace:FindFirstChild("XboxFix"):Destroy()
-			game.workspace.Borders.InvisibleBorder:remove()
-			game.workspace.Lobby.KillPlates:remove()
-			plr.CharacterAdded:Connect(function()
-			plr.PlayerGui:WaitForChild("Extra"):WaitForChild("Local").Parent = workspace
-			plr.PlayerGui:WaitForChild("Extra"):WaitForChild("Local").Parent = workspace
-			plr.PlayerGui:WaitForChild("Extra"):WaitForChild("MobileFix").Parent = workspace
-			plr.PlayerGui:WaitForChild("Extra"):WaitForChild("XboxFix").Parent = workspace
-			wait(.1)
-			workspace:FindFirstChild("Local"):Destroy()
-			workspace:FindFirstChild("Local"):Destroy()
-			workspace:FindFirstChild("MobileFix"):Destroy()
-			workspace:FindFirstChild("XboxFix"):Destroy()
-		end)           
-	end
+end)
