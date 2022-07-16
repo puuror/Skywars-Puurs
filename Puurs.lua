@@ -321,6 +321,24 @@ if value == false then
 _G.s1 = false
 end
 end)
+Chann1:Toggle("Infinite Jump",false,function(state)
+if state == true then
+getgenv().Jump = true
+local plr = game:GetService("Players").LocalPlayer
+local mouse = plr:GetMouse()
+mouse.KeyDown:Connect(function(state)
+			if getgenv().Jump then
+			if state:byte() == 32 then
+			local humanoid = plr.Character:FindFirstChildOfClass("Humanoid")
+			humanoid:ChangeState("Jumping")
+		end
+	end
+end)
+end
+if state == false then
+getgenv().Jump = false
+end
+end)
 
 Chann2:Label("Credits To The UI Library Maker")
 Chann2:Seperator()
