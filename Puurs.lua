@@ -5,6 +5,7 @@ local Win1 = DiscordLib:Window("")
 local Tab1 = Win1:Server("Puurs", "")
 
 local Chann1 = Tab1:Channel("General")
+local Chann2 = Tab1:Channel("Credits")
 
 Chann1:Button("Shield GodMode", function()
    local plr = game.Players.LocalPlayer
@@ -320,3 +321,13 @@ if value == false then
 _G.s1 = false
 end
 end)
+
+Chann2:Label("Credits To The UI Library Maker")
+Chann2:Seperator()
+Chann2:Label("Scripts Made By Me")
+Chann2:Button("Puurs Discord", function()
+DiscordLib:Notification("Notification", "Puurs Discord Link Copied", "Okay!")
+setclipboard("https://discord.gg/9h6VNXZ99G")
+end) 
+Chann2:Seperator()
+Chann2:Label("Discord Tag Puuror#0680, VitaminBitter#2801")
