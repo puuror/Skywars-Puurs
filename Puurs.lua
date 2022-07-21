@@ -340,15 +340,16 @@ getgenv().Jump = false
 end
 end)
 Chann1:Toggle("Reach",false,function(value)
-		if value == true then
-			getgenv().Reach = true
+if value == true then
+	getgenv().Reach = true
 		game.Players.LocalPlayer.CharacterAdded:Connect(function()
-	game.Players.LocalPlayer.Backpack.Sword.Handle.Size = Vector3.new(1,1,30)
-					end
+		game.Players.LocalPlayer.Backpack.Sword.Handle.Size = Vector3.new(1,1,30)
+	end)
+end
 if value == false then
-			getgenv().Reach = false
-			end
-				end)
+		getgenv().Reach = false
+	end
+end)
 
 
 
