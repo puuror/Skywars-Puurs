@@ -339,6 +339,17 @@ if state == false then
 getgenv().Jump = false
 end
 end)
+Chann1:Toggle("Reach",false,function(value)
+		if value == true then
+			getgenv().Reach = true
+		game.Players.LocalPlayer.CharacterAdded:Connect(function()
+	game.Players.LocalPlayer.Backpack.Sword.Handle.Size = Vector3.new(1,1,30)
+end)
+if value == false then
+			getgenv().Reach = false
+				end)
+
+
 
 Chann2:Label("Credits To The UI Library Maker")
 Chann2:Seperator()
