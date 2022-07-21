@@ -344,9 +344,10 @@ Chann1:Toggle("Reach",false,function(value)
 			getgenv().Reach = true
 		game.Players.LocalPlayer.CharacterAdded:Connect(function()
 	game.Players.LocalPlayer.Backpack.Sword.Handle.Size = Vector3.new(1,1,30)
-end)
+					end
 if value == false then
 			getgenv().Reach = false
+			end
 				end)
 
 
