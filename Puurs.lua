@@ -116,6 +116,14 @@ tool.GripUp = tool.GripUp + Vector3.new(0,0,-1)
     end)
     end)
 end)
+Chann1:Button("Sword Reach",function()
+local plr = game:GetService("Players").LocalPlayer
+local selection = Instance.new("SelectionBox", plr.Backpack.Sword.Handle)
+selection.LineThickness = 0.05
+selection.Color3 = Color3.new(0,0,0)
+selection.Adornee = plr.Backpack.Sword.Handle
+plr.Backpack.Sword.Handle.Size = Vector3.new(0,6,6)
+end)
 Chann1:Button("Scaffolding", function()
     -- Gui to Lua
 -- Version: 3.2
@@ -338,17 +346,6 @@ end
 if state == false then
 getgenv().Jump = false
 end
-end)
-Chann1:Toggle("Reach",false,function(value)
-if value == true then
-	getgenv().Reach = true
-		game.Players.LocalPlayer.CharacterAdded:Connect(function()
-		game.Players.LocalPlayer.Backpack.Sword.Handle.Size = Vector3.new(1,1,30)
-	end)
-end
-if value == false then
-		getgenv().Reach = false
-	end
 end)
 
 
