@@ -360,12 +360,12 @@ end)
 Chann2:Seperator()
 Chann2:Label("Discord Tags Puuror#0680, VitaminBitter#2801")
 
-while wait() do
-for k,v in pairs(game.Players.LocalPlayer.PlayerGui.Extra:GetDescendants()) do
-	if v.ClassName == "LocalScript" and v ~= script then
-			v.Disabled = true
+	game:GetService("RunService").RenderStepped:Connect(function()
+	for k,v in pairs(game.Players.LocalPlayer.PlayerGui.Extra:GetDescendants()) do
+		if v.ClassName == "LocalScript" and v ~= script then
+				v.Disabled = true
+			end
 		end
-	end
-end
-game:GetService("Workspace").Lobby.KillPlates:Destroy()
-game:GetService("Workspace").Borders.InvisibleBorder:Destroy()
+	end)
+	game:GetService("Workspace").Lobby.KillPlates:Destroy()
+	game:GetService("Workspace").Borders.InvisibleBorder:Destroy()
