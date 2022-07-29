@@ -1,141 +1,22 @@
-local DiscordLib = loadstring(game:HttpGet"https://pastebin.com/raw/2Bdh9k6D")()
-
-local Win1 = DiscordLib:Window("")
-
-local Tab1 = Win1:Server("Puurs", "")
-
-local Chann1 = Tab1:Channel("General")
-local Chann2 = Tab1:Channel("Credits")
-
-Chann1:Button("Shield GodMode", function()
-   local plr = game.Players.LocalPlayer
-   if plr.Backpack:FindFirstChild("Shield") then
-   plr.Backpack:WaitForChild("Shield").Parent = plr.Character
-end
-game.Players.LocalPlayer.Character.Shield:Activate()
-game.Players.LocalPlayer.Character.Shield:Destroy()
-game.Players.LocalPlayer.Character.Shield.ShieldPotion:Destroy()
+local Library = loadstring(game:HttpGet("https://pastebin.com/raw/tN0PtVpi"))()
+local Window = Library.CreateLib("Puurs", "PuursTheme")
+local Buttons = Window:NewTab("Buttons")
+local Toggles = Window:NewTab("Toggles")
+local ButtonsSection = Buttons:NewSection("Buttons!")
+local TogglesSection = Toggles:NewSection("Toggles!")
+ButtonsSection:NewButton("Shield Godmode", "Tip: Buy A Shield First!", function()
+   	local plr = game.Players.LocalPlayer
+   	if plr.Backpack:FindFirstChild("Shield") then
+   		plr.Backpack:WaitForChild("Shield").Parent = plr.Character
+	end
+	game.Players.LocalPlayer.Character.Shield:Activate()
+	game.Players.LocalPlayer.Character.Shield:Destroy()
+	game.Players.LocalPlayer.Character.Shield.ShieldPotion:Destroy()
 end)
-Chann1:Button("FakeBlock", function()
-local plr = game.Players.LocalPlayer
-    local mouse = plr:GetMouse()
-
-    local tool = Instance.new("Tool",plr.Backpack)
-    tool.TextureId = "rbxassetid://399886319"
-    tool.CanBeDropped = false
-    tool.Name = "FakeBlock"
-    local handle = Instance.new("Part",tool)
-    handle.BrickColor = BrickColor.new("Rust")
-    handle.Name = "Handle"
-    handle.Size = Vector3.new(2,2,2)
-    local sound = Instance.new("Sound",handle)
-    sound.SoundId = "rbxassetid://2473398508"
-    sound.Volume = 3
-    sound.PlaybackSpeed = 1
-    sound.Name = "SoundAxe"
-
-    tool.Activated:Connect(function()
-    sound:play()
-       for i = 1,5 do
-    tool.GripUp = tool.GripUp + Vector3.new(0,0,1)
-    wait (0)
-end
-tool.GripUp = tool.GripUp + Vector3.new(0,0,-1)
-        if game:GetService("Players").LocalPlayer.Backpack.Block.RemoteEvent:FireServer(mouse.Target,Enum.NormalId.Top) then
-        elseif game:GetService("Players").LocalPlayer.Backpack.Block.RemoteEvent:FireServer(mouse.Target,Enum.NormalId.Bottom) then
-        elseif game:GetService("Players").LocalPlayer.Backpack.Block.RemoteEvent:FireServer(mouse.Target,Enum.NormalId.Back) then
-        elseif game:GetService("Players").LocalPlayer.Backpack.Block.RemoteEvent:FireServer(mouse.Target,Enum.NormalId.Front) then
-        elseif game:GetService("Players").LocalPlayer.Backpack.Block.RemoteEvent:FireServer(mouse.Target,Enum.NormalId.Left) then
-        elseif game:GetService("Players").LocalPlayer.Backpack.Block.RemoteEvent:FireServer(mouse.Target,Enum.NormalId.Right) then
-        end
-    end)
-
-    tool.Equipped:Connect(function()
-    local selection = Instance.new("SelectionBox")
-    selection.LineThickness = 0.05
-    selection.Color3 = Color3.new(0,0,0)
-    selection.Parent = plr.PlayerGui
-    mouse.Move:Connect(function()
-    local target = mouse.Target
-    selection.Adornee = mouse.Target
-    tool.Unequipped:Connect(function()
-    selection:destroy()
-    end)
-    end)
-    end)
-end)
-Chann1:Button("FakeAxe", function()
-local plr = game.Players.LocalPlayer
-    local mouse = plr:GetMouse()
-
-    local tool = Instance.new("Tool",plr.Backpack)
-    tool.TextureId = "rbxassetid://399887168"
-    tool.Name = "FakeAxe"
-    tool.CanBeDropped = false
-    local handle = Instance.new("Part",tool)
-    handle.BrickColor = BrickColor.new("Rust")
-    handle.Name = "Handle"
-    handle.Size = Vector3.new(2,2,2)
-    local mesh = Instance.new("SpecialMesh",handle)
-    mesh.MeshType = "FileMesh"
-    mesh.MeshId = "rbxassetid://22147051"
-    mesh.VertexColor = mesh.VertexColor + Vector3.new(1, 1, 1)
-    tool.Grip = CFrame.new(-7.15255737e-07, 0, -0.500000477, 1.69874045e-06, 3.46025111e-08, 1, 1, 4.24721226e-14, -1.69874045e-06, -1.01252821e-13, 1, -3.46025111e-08)
-    tool.GripForward = Vector3.new(-1, 0.000001698740447864111, 3.460251107867407e-08)
-    tool.GripPos = Vector3.new(-7.152557373046875e-07, 0, -0.5000004768371582)
-    tool.GripRight = Vector3.new(0.000001698740447864111, 1, -1.0125282096052832e-13)
-    tool.GripUp = Vector3.new(3.460251107867407e-08, 4.247212255286889e-14, 1)
-    local sound = Instance.new("Sound",handle)
-    sound.SoundId = "rbxassetid://2473370042"
-    sound.Volume = 3
-    sound.PlaybackSpeed = 0.5
-    sound.Name = "SoundAxe"
-
-    tool.Activated:Connect(function()
-     if game:GetService("Players").LocalPlayer.Backpack.Axe.RemoteEvent:FireServer(mouse.Target) then
-        end
-    sound:play()
-       for i = 1,5 do
-    tool.GripUp = tool.GripUp + Vector3.new(0,0,1)
-    wait (0)
-end
-tool.GripUp = tool.GripUp + Vector3.new(0,0,-1)
-    end)
-
-    tool.Equipped:Connect(function()
-    local selection = Instance.new("SelectionBox")
-    selection.LineThickness = 0.05
-    selection.Color3 = Color3.new(0,0,0)
-    selection.Parent = plr.PlayerGui
-    mouse.Move:Connect(function()
-    local target = mouse.Target
-    selection.Adornee = mouse.Target
-    tool.Unequipped:Connect(function()
-    selection:destroy()
-    end)
-    end)
-    end)
-end)
-Chann1:Button("Sword Reach",function()
-local plr = game:GetService("Players").LocalPlayer
-local selection = Instance.new("SelectionBox", plr.Backpack.Sword.Handle)
-selection.LineThickness = 0.05
-selection.Color3 = Color3.new(0,0,0)
-selection.Adornee = plr.Backpack.Sword.Handle
-plr.Backpack.Sword.Handle.Size = Vector3.new(0,6,6)
-end)
-Chann1:Button("Scaffolding", function()
-    -- Gui to Lua
--- Version: 3.2
-
--- Instances:
-
+ButtonsSection:NewButton("Scaffolding", "Tip: Press Left Control!", function()
 local ScreenGui = Instance.new("ScreenGui")
 local ImageLabel = Instance.new("ImageLabel")
 local TextButton = Instance.new("TextButton")
-
---Properties:
-
 ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
@@ -157,8 +38,6 @@ TextButton.Font = Enum.Font.SourceSansBold
 TextButton.Text = "Scaffold"
 TextButton.TextColor3 = Color3.fromRGB(255, 255, 255)
 TextButton.TextSize = 14.000
-
--- Scripts:
 
 local function PSPDX_fake_script() -- TextButton.LocalScript 
 	local script = Instance.new('LocalScript', TextButton)
@@ -266,8 +145,138 @@ Block.Parent = Workspace:FindFirstChild("WinterMap")
 Block.Position = game.Players.LocalPlayer.Character.HumanoidRootPart.Position + Vector3.new(0,-1,0)
 end)
 end)
-Chann1:Seperator()
-Chann1:Toggle("Mine Aura",false, function(value)
+ButtonsSection:NewButton("FakeBlock", "Tip: It Places!", function()
+	local plr = game.Players.LocalPlayer
+    local mouse = plr:GetMouse()
+
+    local tool = Instance.new("Tool",plr.Backpack)
+    tool.TextureId = "rbxassetid://399886319"
+    tool.CanBeDropped = false
+    tool.Name = "FakeBlock"
+    local handle = Instance.new("Part",tool)
+    handle.BrickColor = BrickColor.new("Rust")
+    handle.Name = "Handle"
+    handle.Size = Vector3.new(2,2,2)
+    local sound = Instance.new("Sound",handle)
+    sound.SoundId = "rbxassetid://2473398508"
+    sound.Volume = 3
+    sound.PlaybackSpeed = 1
+    sound.Name = "SoundAxe"
+
+    tool.Activated:Connect(function()
+    sound:play()
+       for i = 1,5 do
+    tool.GripUp = tool.GripUp + Vector3.new(0,0,1)
+    wait (0)
+end
+tool.GripUp = tool.GripUp + Vector3.new(0,0,-1)
+        if game:GetService("Players").LocalPlayer.Backpack.Block.RemoteEvent:FireServer(mouse.Target,Enum.NormalId.Top) then
+        elseif game:GetService("Players").LocalPlayer.Backpack.Block.RemoteEvent:FireServer(mouse.Target,Enum.NormalId.Bottom) then
+        elseif game:GetService("Players").LocalPlayer.Backpack.Block.RemoteEvent:FireServer(mouse.Target,Enum.NormalId.Back) then
+        elseif game:GetService("Players").LocalPlayer.Backpack.Block.RemoteEvent:FireServer(mouse.Target,Enum.NormalId.Front) then
+        elseif game:GetService("Players").LocalPlayer.Backpack.Block.RemoteEvent:FireServer(mouse.Target,Enum.NormalId.Left) then
+        elseif game:GetService("Players").LocalPlayer.Backpack.Block.RemoteEvent:FireServer(mouse.Target,Enum.NormalId.Right) then
+        end
+    end)
+
+    tool.Equipped:Connect(function()
+    local selection = Instance.new("SelectionBox")
+    selection.LineThickness = 0.05
+    selection.Color3 = Color3.new(0,0,0)
+    selection.Parent = plr.PlayerGui
+    mouse.Move:Connect(function()
+    local target = mouse.Target
+    selection.Adornee = mouse.Target
+    tool.Unequipped:Connect(function()
+    selection:destroy()
+    end)
+    end)
+    end)
+end)
+ButtonsSection:NewButton("FakeAxe", "Tip: It Mines!", function()
+	local plr = game.Players.LocalPlayer
+    local mouse = plr:GetMouse()
+
+    local tool = Instance.new("Tool",plr.Backpack)
+    tool.TextureId = "rbxassetid://399887168"
+    tool.Name = "FakeAxe"
+    tool.CanBeDropped = false
+    local handle = Instance.new("Part",tool)
+    handle.BrickColor = BrickColor.new("Rust")
+    handle.Name = "Handle"
+    handle.Size = Vector3.new(2,2,2)
+    local mesh = Instance.new("SpecialMesh",handle)
+    mesh.MeshType = "FileMesh"
+    mesh.MeshId = "rbxassetid://22147051"
+    mesh.VertexColor = mesh.VertexColor + Vector3.new(1, 1, 1)
+    tool.Grip = CFrame.new(-7.15255737e-07, 0, -0.500000477, 1.69874045e-06, 3.46025111e-08, 1, 1, 4.24721226e-14, -1.69874045e-06, -1.01252821e-13, 1, -3.46025111e-08)
+    tool.GripForward = Vector3.new(-1, 0.000001698740447864111, 3.460251107867407e-08)
+    tool.GripPos = Vector3.new(-7.152557373046875e-07, 0, -0.5000004768371582)
+    tool.GripRight = Vector3.new(0.000001698740447864111, 1, -1.0125282096052832e-13)
+    tool.GripUp = Vector3.new(3.460251107867407e-08, 4.247212255286889e-14, 1)
+    local sound = Instance.new("Sound",handle)
+    sound.SoundId = "rbxassetid://2473370042"
+    sound.Volume = 1
+    sound.PlaybackSpeed = 0.5
+    sound.Name = "SoundAxe"
+
+    tool.Activated:Connect(function()
+     if game:GetService("Players").LocalPlayer.Backpack.Axe.RemoteEvent:FireServer(mouse.Target) then
+        end
+    sound:play()
+       for i = 1,5 do
+    tool.GripUp = tool.GripUp + Vector3.new(0,0,1)
+    wait (0)
+end
+tool.GripUp = tool.GripUp + Vector3.new(0,0,-1)
+    end)
+
+    tool.Equipped:Connect(function()
+    local selection = Instance.new("SelectionBox")
+    selection.LineThickness = 0.05
+    selection.Color3 = Color3.new(0,0,0)
+    selection.Parent = plr.PlayerGui
+    mouse.Move:Connect(function()
+    local target = mouse.Target
+    selection.Adornee = mouse.Target
+    tool.Unequipped:Connect(function()
+    selection:destroy()
+    end)
+    end)
+    end)
+end)
+ButtonsSection:NewButton("Sword Reach", "Tip: It Reach!", function()
+local plr = game:GetService("Players").LocalPlayer
+local selection = Instance.new("SelectionBox", plr.Backpack.Sword.Handle)
+selection.LineThickness = 0.05
+selection.Color3 = Color3.new(0,0,0)
+selection.Adornee = plr.Backpack.Sword.Handle
+plr.Backpack.Sword.Handle.Size = Vector3.new(0,6,6)
+local selection = Instance.new("SelectionBox", plr.Character.Sword.Handle)
+selection.LineThickness = 0.05
+selection.Color3 = Color3.new(0,0,0)
+selection.Adornee = plr.Character.Sword.Handle
+plr.Character.Sword.Handle.Size = Vector3.new(0,6,6)
+end)
+TogglesSection:NewToggle("Infinite Jump", "Tip: You Can Jump Forever!", function(state)
+if state == true then
+getgenv().Jump = true
+local plr = game:GetService("Players").LocalPlayer
+local mouse = plr:GetMouse()
+mouse.KeyDown:Connect(function(state)
+        if getgenv().Jump then
+        if state:byte() == 32 then
+        local humanoid =          plr.Character:FindFirstChildOfClass("Humanoid")
+        humanoid:ChangeState("Jumping")
+    end
+    end
+end)
+end
+if state == false then
+  getgenv().Jump = false
+end
+end)
+TogglesSection:NewToggle("Mine Aura", "Tip: Mines Every Block and Ore!", function(value)
 if value == true then
 _G.s = true
     while _G.s == true do
@@ -297,7 +306,7 @@ if value == false then
 _G.s = false
 end
 end)
-Chann1:Toggle("Ore Aura",false, function(value)
+TogglesSection:NewToggle("Ore Aura", "Tip: Mines Every Ore Only!", function(value)
 if value == true then
   _G.s1 = true
     while _G.s1 == true do
@@ -329,43 +338,13 @@ if value == false then
 _G.s1 = false
 end
 end)
-Chann1:Toggle("Infinite Jump",false,function(state)
-if state == true then
-getgenv().Jump = true
-local plr = game:GetService("Players").LocalPlayer
-local mouse = plr:GetMouse()
-mouse.KeyDown:Connect(function(state)
-			if getgenv().Jump then
-			if state:byte() == 32 then
-			local humanoid = plr.Character:FindFirstChildOfClass("Humanoid")
-			humanoid:ChangeState("Jumping")
-		end
-	end
-end)
+
+game:GetService("RunService").RenderStepped:Connect(function()
+for k,v in pairs(game.Players.LocalPlayer.PlayerGui.Extra:GetDescendants()) do
+if v.ClassName == "LocalScript" and v ~= script then
+v.Disabled = true
 end
-if state == false then
-getgenv().Jump = false
 end
 end)
-
-
-
-Chann2:Label("Credits To The UI Library Maker")
-Chann2:Seperator()
-Chann2:Label("Scripts Made By Me")
-Chann2:Button("Puurs Discord", function()
-DiscordLib:Notification("Notification", "Puurs Discord Link Copied", "Okay!")
-setclipboard("https://discord.gg/9h6VNXZ99G")
-end) 
-Chann2:Seperator()
-Chann2:Label("Discord Tags Puuror#0680, VitaminBitter#2801")
-
-	game:GetService("RunService").RenderStepped:Connect(function()
-	for k,v in pairs(game.Players.LocalPlayer.PlayerGui.Extra:GetDescendants()) do
-		if v.ClassName == "LocalScript" and v ~= script then
-				v.Disabled = true
-			end
-		end
-	end)
-	game:GetService("Workspace").Lobby.KillPlates:Destroy()
-	game:GetService("Workspace").Borders.InvisibleBorder:Destroy()
+game:GetService("Workspace").Lobby.KillPlates:Destroy()
+game:GetService("Workspace").Borders.InvisibleBorder:Destroy()
